@@ -41,3 +41,10 @@ linux-for-devops/
     ├── notes.md
     ├── commands.md
     └── resources.md
+Goal
+
+My goal is to build strong Linux fundamentals for DevOps and document everything in a clean and practical way.
+
+Connect with me
+
+LinkedIn: https://www.linkedin.com/in/usman-devops/
