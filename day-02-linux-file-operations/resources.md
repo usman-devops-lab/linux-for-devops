@@ -28,6 +28,11 @@ I practiced Day 2 Linux commands using the following environments:
 | LinkedIn              | Sharing daily learning progress                       |
 
 ---
+## Handwritten Notes
+
+I also prepared handwritten notes for Day 2 to understand the commands more clearly before practicing them in the terminal.
+
+- [Day 2 Handwritten Notes](./handwritten-notes/day-02-handwritten-notes.pdf)
 
 ## Tools Used
 
