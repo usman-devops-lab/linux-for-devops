@@ -36,13 +36,14 @@ A strong understanding of Linux helps in server management, troubleshooting, aut
 
 ## Learning Progress
 
-| Day   | Topic                                                              | Link                                         | Status    |
-| ----- | ------------------------------------------------------------------ | -------------------------------------------- | --------- |
-| Day 1 | Linux Basics for DevOps                                            | [View Day 1](./day-01-linux-basics)          | Completed |
-| Day 2 | Linux File Operations, Text Processing, SSH, and System Monitoring | [View Day 2](./day-02-linux-file-operations) | Completed |
-| Day 3 | Linux File System                                                  | Coming Soon                                  | Upcoming  |
-| Day 4 | Users and Permissions                                              | Coming Soon                                  | Upcoming  |
-| Day 5 | Process Management                                                 | Coming Soon                                  | Upcoming  |
+| Phase   | Topic                                                              | Link                                           | Status    |
+| ------- | ------------------------------------------------------------------ | ---------------------------------------------- | --------- |
+| Phase 1 | Linux Basics for DevOps                                            | [View Phase 1](./day-01-linux-basics)          | Completed |
+| Phase 2 | Linux File Operations, Text Processing, SSH, and System Monitoring | [View Phase 2](./day-02-linux-file-operations) | Completed |
+| Phase 3 | Linux File System                                                  | Coming Soon                                    | Upcoming  |
+| Phase 4 | Users and Permissions                                              | Coming Soon                                    | Upcoming  |
+| Phase 5 | Process Management                                                 | Coming Soon                                    | Upcoming  |
+
 
 ---
 
