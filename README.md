@@ -26,7 +26,11 @@ A strong understanding of Linux helps in server management, troubleshooting, aut
 * Hard links and soft links
 * SSH and remote server access
 * Disk, memory, and process monitoring
-* Users and permissions
+* Package management
+* User and group management
+* File permissions and ownership
+* Compression and archiving
+* File transfer commands
 * Process management
 * Networking basics
 * Bash scripting
@@ -36,14 +40,14 @@ A strong understanding of Linux helps in server management, troubleshooting, aut
 
 ## Learning Progress
 
-| Phase   | Topic                                                              | Link                                           | Status    |
-| ------- | ------------------------------------------------------------------ | ---------------------------------------------- | --------- |
-| Phase 1 | Linux Basics for DevOps                                            | [View Phase 1](./day-01-linux-basics)          | Completed |
-| Phase 2 | Linux File Operations, Text Processing, SSH, and System Monitoring | [View Phase 2](./day-02-linux-file-operations) | Completed |
-| Phase 3 | Linux File System                                                  | Coming Soon                                    | Upcoming  |
-| Phase 4 | Users and Permissions                                              | Coming Soon                                    | Upcoming  |
-| Phase 5 | Process Management                                                 | Coming Soon                                    | Upcoming  |
-
+| Phase   | Topic                                                                                | Link                                                      | Status    |
+| ------- | ------------------------------------------------------------------------------------ | --------------------------------------------------------- | --------- |
+| Phase 1 | Linux Basics for DevOps                                                              | [View Phase 1](./day-01-linux-basics)                     | Completed |
+| Phase 2 | Linux File Operations, Text Processing, SSH, and System Monitoring                   | [View Phase 2](./day-02-linux-file-operations)            | Completed |
+| Phase 3 | Linux Users, Groups, Permissions, Package Management, Compression, and File Transfer | [View Phase 3](./phase-03-linux-users-groups-permissions) | Completed |
+| Phase 4 | Process Management                                                                   | Coming Soon                                               | Upcoming  |
+| Phase 5 | Networking Basics                                                                    | Coming Soon                                               | Upcoming  |
+| Phase 6 | Bash Scripting                                                                       | Coming Soon                                               | Upcoming  |
 
 ---
 
@@ -60,7 +64,14 @@ linux-for-devops/
 │   ├── resources.md
 │   └── handwritten-notes/
 │
-└── day-02-linux-file-operations/
+├── day-02-linux-file-operations/
+│   ├── README.md
+│   ├── commands.md
+│   ├── errors-and-fixes.md
+│   ├── resources.md
+│   └── handwritten-notes/
+│
+└── phase-03-linux-users-groups-permissions/
     ├── README.md
     ├── commands.md
     ├── errors-and-fixes.md
