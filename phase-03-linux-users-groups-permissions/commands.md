@@ -4,8 +4,6 @@ This file contains all commands I practiced in Phase 3 of my Linux for DevOps jo
 
 Phase 3 focused on system information, package management, user and group management, permissions, compression, and file transfer.
 
----
-
 ## 1. System Information Commands
 
 ```bash
@@ -21,8 +19,6 @@ id
 ### Purpose
 
 These commands help check basic system and user information.
-
----
 
 ## 2. Directory and System File Checking
 
