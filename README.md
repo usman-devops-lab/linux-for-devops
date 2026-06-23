@@ -46,14 +46,13 @@ A strong understanding of Linux helps in server management, troubleshooting, aut
 
 > I am organizing the course content into phases based on what I cover and document in this repository.
 
-| Phase   | Topic                                                                              | Link                                                      | Status    |
-| ------- | ---------------------------------------------------------------------------------- | --------------------------------------------------------- | --------- |
-| Phase 1 | Internet Basics, Servers, Linux OS, and Linux Server Setup                         | [View Phase 1](./day-01-linux-basics)                     | Completed |
-| Phase 2 | Linux Basic Commands, File Operations, Text Processing, SSH, and System Monitoring | [View Phase 2](./day-02-linux-file-operations)            | Completed |
-| Phase 3 | Users, Groups, Permissions, Package Management, Compression, and File Transfer     | [View Phase 3](./phase-03-linux-users-groups-permissions) | Completed |
-| Phase 4 | Linux Networking Commands                                                          | Coming Soon                                               | Upcoming  |
-| Phase 5 | Pro Linux Commands: `awk`, `grep`, `find`, and `sed`                               | Coming Soon                                               | Upcoming  |
-| Phase 6 | Linux Volume Management and LVM                                                    | Coming Soon                                               | Upcoming  |
+| Phase   | Topic                                                                                                 | Link                                                      | Status    |
+| ------- | ----------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | --------- |
+| Phase 1 | Internet Basics, Servers, Linux OS, and Linux Server Setup                                            | [View Phase 1](./day-01-linux-basics)                     | Completed |
+| Phase 2 | Linux Basic Commands, Advanced Commands, File Operations, Text Processing, SSH, and System Monitoring | [View Phase 2](./day-02-linux-file-operations)            | Completed |
+| Phase 3 | Users, Groups, Permissions, Package Management, Compression, and File Transfer                        | [View Phase 3](./phase-03-linux-users-groups-permissions) | Completed |
+| Phase 4 | Linux Networking Commands and Pro Linux Commands: `awk`, `grep`, `find`, and `sed`                    | Coming Soon                                               | Upcoming  |
+| Phase 5 | Linux Volume Management and LVM                                                                       | Coming Soon                                               | Upcoming  |
 
 ---
 
