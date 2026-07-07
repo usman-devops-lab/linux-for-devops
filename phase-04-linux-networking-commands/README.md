@@ -1,77 +1,71 @@
 # Phase 4: Linux Networking Commands for DevOps
 
-This phase documents my learning of **Linux Networking Commands** for DevOps.
+This phase documents my learning and hands-on practice of **Linux Networking Commands** for DevOps.
 
-In this phase, I studied and practiced important Linux networking commands that are used to troubleshoot network issues, check server connectivity, inspect IP addresses, verify DNS resolution, check open ports, trace packet routes, scan networks, download files, monitor command output, and manage firewall rules.
-
-Networking is a core skill for DevOps because servers, cloud instances, containers, APIs, websites, databases, CI/CD pipelines, and monitoring tools all depend on network communication.
+In this phase, I practiced important networking commands on an Ubuntu EC2 server. These commands are useful for checking connectivity, troubleshooting DNS, checking IP addresses, inspecting network interfaces, testing ports, checking running services, tracing packet routes, checking domain information, and understanding real server networking behavior.
 
 ---
 
 ## Learning Source
 
-This phase is based on the course:
+This phase is based on:
 
 **Linux For DevOps In One Shot | Complete Beginners to Advanced Linux Hindi**
 
-I am learning Linux step by step and documenting important concepts, commands, notes, errors, fixes, and hands-on practice that are useful for DevOps, cloud infrastructure, automation, and server management.
+I am learning Linux step by step and documenting important concepts, commands, notes, errors, fixes, screenshots, and hands-on practice that are useful for DevOps, cloud infrastructure, automation, and server management.
 
 ---
 
 ## Phase 4 Focus
 
-The main focus of this phase is Linux networking.
+The focus of this phase is **Linux Networking Commands**.
 
-I covered commands related to:
+I practiced commands related to:
 
-- Connectivity checking
-- IP address and network interface checking
-- Routing table checking
+- Network connectivity checking
+- IP address checking
+- Network interface inspection
 - DNS troubleshooting
-- Port and service checking
-- Local network inspection
+- Port and service testing
+- Route and packet path tracing
 - Domain information lookup
-- Network scanning
-- File downloading
-- HTTP and API testing
-- Live monitoring
-- Firewall rule management
-- Beginner DevOps network troubleshooting flow
+- Socket and connection checking
+- Installing missing networking tools
+- Understanding old networking commands and modern replacements
 
 ---
 
 ## Why Linux Networking Is Important for DevOps
 
-Linux networking is very important for DevOps engineers because most production systems run on Linux servers and communicate over networks.
+Linux networking is one of the most important skills for DevOps engineers.
+
+Most DevOps work happens on Linux servers, cloud instances, containers, CI/CD runners, APIs, databases, monitoring tools, and production applications. All of these depend on network communication.
 
 A DevOps engineer should know how to check:
 
 - Whether a server is reachable
-- Whether internet is working
-- Whether DNS is resolving correctly
+- Whether internet connectivity is working
+- Whether DNS resolution is working
 - Which IP address is assigned to a server
 - Which network interface is active
-- Which route or gateway is being used
 - Which ports are open
 - Which services are listening
-- Whether firewall rules are allowing or blocking traffic
-- Whether a website or API is responding
-- Whether packets are being dropped
-- Where network delay is happening
-
-These skills are useful in cloud servers, Linux administration, Docker, Kubernetes, CI/CD troubleshooting, monitoring, and production support.
+- Whether HTTP or HTTPS ports are reachable
+- Where packet delay or packet loss is happening
+- Whether a domain is registered and resolving correctly
+- Which networking tools are old and which modern commands should be used
 
 ---
 
-# Commands Covered
+# Commands Practiced
 
-## 1. Connectivity Checking Commands
+## 1. Connectivity Commands
 
 | Command | Purpose |
 |---|---|
-| `ping` | Checks whether a host, server, website, or IP address is reachable |
-| `traceroute` | Shows the network path packets take to reach a destination |
-| `tracepath` | Simple route checking command |
+| `ping` | Checks whether a host, website, or IP address is reachable |
+| `traceroute` | Shows the route packets take to reach a destination |
+| `tracepath` | Shows packet path and MTU information |
 | `mtr` | Combines ping and traceroute for live packet loss and latency checking |
 
 ---
@@ -80,316 +74,125 @@ These skills are useful in cloud servers, Linux administration, Docker, Kubernet
 
 | Command | Purpose |
 |---|---|
-| `ip` | Modern command to check IP addresses, routes, links, and neighbour entries |
-| `ifconfig` | Old command to check network interface information |
-| `hostname` | Shows or changes the system hostname |
-| `iwconfig` | Shows wireless network interface information |
+| `ip` | Modern command to check IP addresses, routes, links, and neighbour table |
+| `ifconfig` | Old command to check network interface details |
+| `hostname` | Shows system hostname |
+| `hostname -I` | Shows IP addresses assigned to the host |
+| `hostnamectl` | Shows detailed system and hostname information |
 
 ---
 
-## 3. Ports and Services Commands
+## 3. Port and Socket Commands
 
 | Command | Purpose |
 |---|---|
-| `ss` | Shows socket statistics, listening ports, and active connections |
-| `netstat` | Old command to show network connections and ports |
-| `nc` / `netcat` | Tests TCP or UDP port connectivity |
-| `telnet` | Old command mostly used today for simple port testing |
+| `netstat` | Shows active network connections and sockets |
+| `ss` | Modern command to check listening ports and socket statistics |
+| `telnet` | Tests connection to a specific host and port |
 
 ---
 
-## 4. DNS Troubleshooting Commands
+## 4. DNS and Domain Commands
 
 | Command | Purpose |
 |---|---|
-| `nslookup` | Basic DNS lookup command |
-| `dig` | Advanced DNS troubleshooting command |
-
----
-
-## 5. Local Network Commands
-
-| Command | Purpose |
-|---|---|
-| `arp` | Shows IP-to-MAC address mapping |
-| `ifplugstatus` | Checks whether a network cable/link is connected |
-
----
-
-## 6. Domain Information Command
-
-| Command | Purpose |
-|---|---|
+| `nslookup` | Checks DNS resolution of a domain |
+| `dig` | Shows detailed DNS query information |
 | `whois` | Shows domain registration and ownership information |
 
 ---
 
-## 7. Routing and Scanning Commands
+# Hands-on Practice Summary
 
-| Command | Purpose |
-|---|---|
-| `route` | Views or manages the system routing table |
-| `nmap` | Scans hosts, ports, and services |
+## 1. ping Practice
 
----
-
-## 8. File Download and HTTP Commands
-
-| Command | Purpose |
-|---|---|
-| `wget` | Downloads files from URLs |
-| `curl` | Tests APIs, HTTP requests, headers, and URL responses |
-
----
-
-## 9. Monitoring and Firewall Commands
-
-| Command | Purpose |
-|---|---|
-| `watch` | Runs a command repeatedly and shows live output |
-| `iptables` | Manages Linux firewall rules |
-
----
-
-# Detailed Notes
-
-## ping
-
-The `ping` command checks whether another server, website, or IP address is reachable.
-
-### Syntax
+I used `ping` to test connectivity with:
 
 ```bash
-ping domain-or-ip
+ping trainwithshubham.com
 ```
 
-### Examples
+The domain resolved successfully and replied from AWS Global Accelerator IP addresses.
 
-```bash
-ping google.com
+Observed result:
+
+```text
+36 packets transmitted
+36 received
+0% packet loss
 ```
 
-```bash
-ping -c 4 google.com
-```
-
-```bash
-ping -c 4 8.8.8.8
-```
-
-### Useful Options
-
-| Option | Meaning |
-|---|---|
-| `-c 4` | Sends only 4 packets |
-| `-i 2` | Waits 2 seconds between packets |
-| `-W 3` | Waits 3 seconds for a reply |
+This means the EC2 server had successful connectivity to the domain.
 
 ### DevOps Use
 
-`ping` is usually the first command used to check internet or server connectivity.
-
-If this works:
-
-```bash
-ping -c 4 8.8.8.8
-```
-
-but this fails:
-
-```bash
-ping -c 4 google.com
-```
-
-then internet may be working, but DNS may have a problem.
+`ping` is usually the first command used to check whether a server, website, or IP address is reachable.
 
 ---
 
-## traceroute
+## 2. netstat Practice
 
-The `traceroute` command shows the path packets take from your system to a destination.
+At first, `netstat` was not installed.
 
-### Syntax
-
-```bash
-traceroute domain-or-ip
-```
-
-### Examples
+Error:
 
 ```bash
-traceroute google.com
+Command 'netstat' not found
 ```
+
+I installed it using:
 
 ```bash
-traceroute 8.8.8.8
+sudo apt install net-tools
 ```
 
-### Install If Missing
+After installation, I ran:
 
 ```bash
-sudo apt update
-sudo apt install traceroute
+netstat
 ```
+
+It showed active internet connections and UNIX domain sockets.
 
 ### DevOps Use
 
-`traceroute` is used when a website or server is slow or unreachable. It helps find where the network problem is happening.
+`netstat` helps check active network connections, sockets, and network activity on a server.
+
+### Modern Replacement
+
+```bash
+ss
+```
 
 ---
 
-## tracepath
+## 3. ifconfig Practice
 
-The `tracepath` command is similar to `traceroute`, but simpler.
-
-### Syntax
-
-```bash
-tracepath domain-or-ip
-```
-
-### Example
-
-```bash
-tracepath google.com
-```
-
-### DevOps Use
-
-`tracepath` is useful for simple route checking and can also help detect MTU issues.
-
----
-
-## traceroute vs tracepath
-
-| Command | Use | Beginner Note |
-|---|---|---|
-| `traceroute` | Detailed route checking | More options |
-| `tracepath` | Simple route checking | Easier and usually no root permission needed |
-
----
-
-## mtr
-
-The `mtr` command combines `ping` and `traceroute`.
-
-It continuously checks each network hop and shows packet loss and latency.
-
-### Syntax
-
-```bash
-mtr domain-or-ip
-```
-
-### Examples
-
-```bash
-mtr google.com
-```
-
-```bash
-mtr -c 10 google.com
-```
-
-```bash
-mtr -r google.com
-```
-
-### Useful Options
-
-| Option | Meaning |
-|---|---|
-| `-c 10` | Sends only 10 packets |
-| `-r` | Runs in report mode |
-
-### Install If Missing
-
-```bash
-sudo apt update
-sudo apt install mtr
-```
-
-### DevOps Use
-
-`mtr` is useful for checking:
-
-- Network delay
-- Packet loss
-- Unstable connections
-- Slow network paths
-
----
-
-## ip
-
-The `ip` command is the modern Linux command used to check and manage network interfaces, IP addresses, routes, and neighbour entries.
-
-### Check IP Address
-
-```bash
-ip addr
-```
-
-Short form:
-
-```bash
-ip a
-```
-
-### Check Network Interfaces
-
-```bash
-ip link
-```
-
-### Check Routing Table
-
-```bash
-ip route
-```
-
-### Check ARP/Neighbour Table
-
-```bash
-ip neigh
-```
-
-### DevOps Use
-
-The `ip` command is one of the most important networking commands in Linux.
-
-It is used to check:
-
-- IP address
-- Network interface status
-- Routing table
-- Default gateway
-- ARP/neighbour entries
-
----
-
-## ifconfig
-
-The `ifconfig` command shows network interface information.
-
-### Syntax
+I used:
 
 ```bash
 ifconfig
 ```
 
-### Check Specific Interface
+The output showed network interfaces such as:
 
-```bash
-ifconfig eth0
+```text
+docker0
+ens5
+lo
 ```
 
-### Install If Missing
+Important IP addresses observed:
 
-```bash
-sudo apt update
-sudo apt install net-tools
+```text
+ens5    172.31.45.84
+docker0 172.17.0.1
+lo      127.0.0.1
 ```
+
+### DevOps Use
+
+`ifconfig` helps check IP addresses, MAC addresses, packet statistics, and network interface status.
 
 ### Modern Replacement
 
@@ -397,780 +200,331 @@ sudo apt install net-tools
 ip addr
 ```
 
-### DevOps Note
+---
 
-`ifconfig` is an old command. In modern Linux and professional DevOps work, the `ip` command is used more often.
+## 4. traceroute Practice
+
+At first, `traceroute` was not installed.
+
+Error:
+
+```bash
+Command 'traceroute' not found
+```
+
+I installed it using:
+
+```bash
+sudo apt install inetutils-traceroute
+```
+
+Then I practiced:
+
+```bash
+traceroute youtube.com
+```
+
+The output showed packet hops from my EC2 server to YouTube.
+
+### DevOps Use
+
+`traceroute` is used when a website or server is slow or unreachable. It helps identify where the network path is breaking or slowing down.
 
 ---
 
-## hostname
+## 5. tracepath Practice
 
-The `hostname` command shows or changes the system hostname.
+I practiced:
 
-### Show Hostname
+```bash
+tracepath trainwithshubham.com
+tracepath facebook.com
+```
+
+The output showed path information and MTU details such as:
+
+```text
+pmtu 9001
+pmtu 1500
+no reply
+Too many hops
+```
+
+### DevOps Use
+
+`tracepath` helps check packet path and MTU-related issues.
+
+---
+
+## 6. mtr Practice
+
+I practiced:
+
+```bash
+mtr trainwithshubham.com
+```
+
+The output showed live route statistics:
+
+- Host
+- Packet loss
+- Sent packets
+- Last ping
+- Average ping
+- Best ping
+- Worst ping
+- Standard deviation
+
+Observed result:
+
+```text
+0.0% packet loss
+```
+
+### DevOps Use
+
+`mtr` is very useful for checking packet loss, latency, unstable routes, and network delay.
+
+---
+
+## 7. nslookup Practice
+
+I practiced:
+
+```bash
+nslookup trainwithshubham.com
+nslookup google.com
+```
+
+The output showed DNS resolution using local DNS resolver:
+
+```text
+Server: 127.0.0.53
+Address: 127.0.0.53#53
+```
+
+For `trainwithshubham.com`, DNS returned IP addresses:
+
+```text
+15.197.225.128
+3.33.251.168
+```
+
+### DevOps Use
+
+`nslookup` is used to check whether a domain is resolving correctly.
+
+---
+
+## 8. telnet Practice
+
+I practiced port testing using:
+
+```bash
+telnet trainwithshubham.com 80
+telnet trainwithshubham.com 443
+```
+
+The output showed:
+
+```text
+Connected to trainwithshubham.com
+```
+
+This means ports `80` and `443` were reachable.
+
+### DevOps Use
+
+`telnet` can be used for simple port connectivity testing.
+
+### Important Note
+
+Telnet should not be used for secure login because it is not encrypted. For secure remote login, use SSH.
+
+---
+
+## 9. hostname Practice
+
+I practiced:
 
 ```bash
 hostname
-```
-
-### Show System IP Address
-
-```bash
 hostname -I
+hostnamectl
+cat /etc/hosts
 ```
 
-### Change Hostname
+Observed hostname:
 
-```bash
-sudo hostnamectl set-hostname web-server-01
+```text
+ip-172-31-45-84
 ```
 
-### DevOps Use
+Observed IP addresses:
 
-`hostname` is useful for identifying servers in:
-
-- Logs
-- Monitoring systems
-- Cloud servers
-- Kubernetes nodes
-- Server clusters
-
----
-
-## iwconfig
-
-The `iwconfig` command shows wireless network interface information.
-
-### Syntax
-
-```bash
-iwconfig
+```text
+172.31.45.84
+172.17.0.1
 ```
 
-### Check Wireless Interface
+`hostnamectl` showed system information such as:
 
-```bash
-iwconfig wlan0
+```text
+Operating System: Ubuntu 26.04 LTS
+Kernel: Linux 7.0.0-1006-aws
+Hardware Vendor: Amazon EC2
+Hardware Model: t3.micro
 ```
 
 ### DevOps Use
 
-`iwconfig` is useful for:
-
-- Laptops
-- Raspberry Pi
-- Wireless servers
-- Edge devices
-- Wi-Fi troubleshooting
-
-### Note
-
-On many cloud servers, wireless interfaces are not available, so `iwconfig` may not show useful output.
+`hostname` and `hostnamectl` help identify servers in logs, monitoring systems, cloud instances, and clusters.
 
 ---
 
-## ss
+## 10. ip Command Practice
 
-The `ss` command shows socket information, listening ports, and active network connections.
-
-### Show Listening TCP and UDP Ports
+I practiced:
 
 ```bash
-ss -tuln
+ip
+ip addr
 ```
 
-### Show Process Name and PID
+The output showed:
 
-```bash
-sudo ss -tulnp
+```text
+lo
+ens5
+docker0
 ```
 
-### Useful Options
+Important IP addresses observed:
 
-| Option | Meaning |
-|---|---|
-| `-t` | TCP connections |
-| `-u` | UDP connections |
-| `-l` | Listening ports |
-| `-n` | Shows numeric ports |
-| `-p` | Shows process name and PID |
+```text
+lo      127.0.0.1
+ens5    172.31.45.84/20
+docker0 172.17.0.1/16
+```
 
 ### DevOps Use
 
-DevOps engineers use `ss` to check whether services are running on correct ports.
+`ip` is the modern and preferred Linux networking command.
 
-Examples:
+Useful commands:
 
-| Port | Service |
-|---|---|
-| `22` | SSH |
-| `80` | HTTP |
-| `443` | HTTPS |
-| `3306` | MySQL |
-| `5432` | PostgreSQL |
-| `6379` | Redis |
+```bash
+ip addr
+ip link
+ip route
+ip neigh
+```
 
 ---
 
-## netstat
+## 11. ss Practice
 
-The `netstat` command shows network connections, listening ports, routing tables, and network statistics.
-
-### Show Listening Ports
-
-```bash
-netstat -tulnp
-```
-
-### Show Routing Table
-
-```bash
-netstat -rn
-```
-
-### Install If Missing
-
-```bash
-sudo apt update
-sudo apt install net-tools
-```
-
-### Modern Replacement
+I practiced:
 
 ```bash
 ss -tulnp
 ```
 
-### DevOps Note
+The output showed listening TCP and UDP ports.
 
-`netstat` is an older command. In modern Linux systems, `ss` is preferred.
-
----
-
-## nc / netcat
-
-The `nc` command is also called Netcat.
-
-It is used to test TCP or UDP connections and check whether a port is open.
-
-### Syntax
-
-```bash
-nc -zv host port
-```
-
-### Example
-
-```bash
-nc -zv google.com 443
-```
-
-This checks whether port `443` is open on `google.com`.
-
-### Useful Options
-
-| Option | Meaning |
-|---|---|
-| `-z` | Scan only, do not send data |
-| `-v` | Verbose output |
-
-### DevOps Use
-
-DevOps engineers use `nc` to test:
-
-- Service connectivity
-- Firewall rules
-- Open ports
-- TCP connection issues
-
----
-
-## telnet
-
-The `telnet` command is an old command used to connect to remote systems.
-
-Today, it is mostly used for simple port testing.
-
-### Syntax
-
-```bash
-telnet host port
-```
-
-### Example
-
-```bash
-telnet google.com 80
-```
-
-### DevOps Note
-
-Do not use Telnet for secure remote login because it is not encrypted.
-
-Use SSH for login:
-
-```bash
-ssh user@server-ip
-```
-
-For port testing, `nc` is usually better:
-
-```bash
-nc -zv google.com 80
-```
-
----
-
-## nslookup
-
-The `nslookup` command checks DNS records of a domain.
-
-### Syntax
-
-```bash
-nslookup domain
-```
-
-### Example
-
-```bash
-nslookup google.com
-```
-
-### Install If Missing
-
-```bash
-sudo apt update
-sudo apt install dnsutils
-```
-
-### DevOps Use
-
-`nslookup` is used to check whether DNS is resolving correctly.
-
----
-
-## dig
-
-The `dig` command is an advanced DNS lookup command.
-
-### Check Default DNS Record
-
-```bash
-dig google.com
-```
-
-### Short Output
-
-```bash
-dig google.com +short
-```
-
-### Check A Record
-
-```bash
-dig google.com A
-```
-
-### Check MX Record
-
-```bash
-dig google.com MX
-```
-
-### Check NS Record
-
-```bash
-dig google.com NS
-```
-
-### Reverse DNS Lookup
-
-```bash
-dig -x 8.8.8.8
-```
-
-### DevOps Use
-
-`dig` is used for serious DNS troubleshooting.
-
-It helps check:
-
-- A records
-- MX records
-- NS records
-- Reverse DNS
-- DNS response details
-
----
-
-## nslookup vs dig
-
-| Command | Use | Beginner Note |
-|---|---|---|
-| `nslookup` | Basic DNS checking | Simple |
-| `dig` | Detailed DNS checking | More professional |
-
----
-
-## arp
-
-ARP means **Address Resolution Protocol**.
-
-It maps IP addresses to MAC addresses in the local network.
-
-### Show ARP Table
-
-```bash
-arp -a
-```
-
-### Install If Missing
-
-```bash
-sudo apt update
-sudo apt install net-tools
-```
-
-### Modern Replacement
-
-```bash
-ip neigh
-```
-
-### DevOps Use
-
-`arp` is used when troubleshooting local network issues.
-
----
-
-## ifplugstatus
-
-The `ifplugstatus` command checks whether a network cable is plugged in.
-
-### Syntax
-
-```bash
-ifplugstatus
-```
-
-### Check Specific Interface
-
-```bash
-ifplugstatus eth0
-```
-
-### Example Output
+Important listening ports observed:
 
 ```text
-eth0: link beat detected
+127.0.0.53:53
+0.0.0.0:22
+[::]:22
 ```
 
-This means the cable/link is connected.
+This means:
 
-```text
-eth0: unplugged
-```
+- DNS resolver was listening on port `53`
+- SSH was listening on port `22`
 
-This means the cable/link is disconnected.
+### DevOps Use
 
-### Install If Missing
+`ss` is used to check which services are listening on which ports.
+
+### Modern Replacement For
 
 ```bash
-sudo apt update
-sudo apt install ifplugd
+netstat
+```
+
+---
+
+## 12. dig Practice
+
+I practiced:
+
+```bash
+dig trainwithshubham.com
+```
+
+The output showed DNS A records:
+
+```text
+3.33.251.168
+15.197.225.128
 ```
 
 ### DevOps Use
 
-`ifplugstatus` is useful for checking physical Ethernet connection.
+`dig` is used for detailed DNS troubleshooting and is more professional than `nslookup`.
 
 ---
 
-## whois
+## 13. whois Practice
 
-The `whois` command shows domain registration information.
+At first, `whois` was not installed.
 
-### Syntax
+Error:
 
 ```bash
-whois domain
+Command 'whois' not found
 ```
 
-### Example
+I installed it using:
 
 ```bash
-whois example.com
-```
-
-### Install If Missing
-
-```bash
-sudo apt update
 sudo apt install whois
 ```
 
-### DevOps Use
+Then I practiced:
 
-`whois` is used to check:
+```bash
+whois trainwithshubham.com
+whois google.com
+whois facebook.com
+```
 
-- Domain ownership
+The output showed domain registration details such as:
+
+- Domain name
 - Registrar
+- Creation date
 - Expiry date
 - Name servers
-- Registration details
-
----
-
-## route
-
-The `route` command is used to view or manage the system routing table.
-
-### Show Routing Table
-
-```bash
-route
-```
-
-### Show Numeric Output
-
-```bash
-route -n
-```
-
-### Add Default Gateway
-
-```bash
-sudo route add default gw 192.168.1.1
-```
-
-### Modern Replacement
-
-```bash
-ip route
-```
+- Domain status
 
 ### DevOps Use
 
-`route` is used to check:
-
-- Default gateway
-- Routing issues
-- Network path problems
-
----
-
-## nmap
-
-The `nmap` command is used for network scanning.
-
-It checks open ports, services, and live hosts.
-
-### Install nmap
-
-```bash
-sudo apt update
-sudo apt install nmap
-```
-
-### Scan One Host
-
-```bash
-nmap 192.168.1.1
-```
-
-### Scan Localhost
-
-```bash
-nmap localhost
-```
-
-### Detect Service Versions
-
-```bash
-nmap -sV 192.168.1.1
-```
-
-### Scan Specific Ports
-
-```bash
-nmap -p 22,80,443 192.168.1.1
-```
-
-### Find Live Devices in Network
-
-```bash
-nmap -sn 192.168.1.0/24
-```
-
-### DevOps Use
-
-`nmap` is used to check whether server ports are open.
-
-Common ports:
-
-| Port | Service |
-|---|---|
-| `22` | SSH |
-| `80` | HTTP |
-| `443` | HTTPS |
-
----
-
-## wget
-
-The `wget` command is used to download files from the internet.
-
-### Syntax
-
-```bash
-wget URL
-```
-
-### Download File
-
-```bash
-wget https://example.com/file.zip
-```
-
-### Save With New Name
-
-```bash
-wget -O newfile.zip https://example.com/file.zip
-```
-
-### Resume Incomplete Download
-
-```bash
-wget -c https://example.com/file.zip
-```
-
-### DevOps Use
-
-`wget` is used to download:
-
-- Packages
-- Scripts
-- Backups
-- Installation files
-- Server files
-
----
-
-## curl
-
-The `curl` command is used to transfer data from URLs.
-
-It is very useful for testing APIs and HTTP requests.
-
-### Show Page or API Response
-
-```bash
-curl https://example.com
-```
-
-### Show Only Headers
-
-```bash
-curl -I https://example.com
-```
-
-### Send GET Request
-
-```bash
-curl -X GET https://api.example.com
-```
-
-### Send POST Request
-
-```bash
-curl -X POST -d "name=ali" https://example.com/api
-```
-
-### Download File
-
-```bash
-curl -O https://example.com/file.zip
-```
-
-### DevOps Use
-
-`curl` is used for:
-
-- API testing
-- HTTP request testing
-- Website health checks
-- Header checking
-- Automation scripts
-
----
-
-## curl vs wget
-
-Both `curl` and `wget` are used to transfer data from URLs, but they are used differently.
-
-| Command | Main Use |
-|---|---|
-| `curl` | Testing APIs, HTTP requests, and headers |
-| `wget` | Downloading files |
-
-### curl Examples
-
-```bash
-curl https://example.com
-```
-
-```bash
-curl -I https://example.com
-```
-
-```bash
-curl -X GET https://api.example.com
-```
-
-```bash
-curl -X POST -d "name=ali" https://example.com/api
-```
-
-### wget Examples
-
-```bash
-wget https://example.com/file.zip
-```
-
-```bash
-wget -c https://example.com/file.zip
-```
-
-### Beginner Memory
-
-```text
-curl = API and HTTP testing
-wget = File downloading
-```
-
----
-
-## watch
-
-The `watch` command runs another command repeatedly and shows live output.
-
-### Syntax
-
-```bash
-watch command
-```
-
-### Examples
-
-```bash
-watch date
-```
-
-Monitor disk space:
-
-```bash
-watch df -h
-```
-
-Monitor memory:
-
-```bash
-watch free -m
-```
-
-Run command every 1 second:
-
-```bash
-watch -n 1 uptime
-```
-
-Monitor open ports:
-
-```bash
-watch ss -tuln
-```
-
-### DevOps Use
-
-`watch` is used to monitor server resources live.
-
-It is useful for checking:
-
-- Disk usage
-- Memory usage
-- Uptime
-- Open ports
-- Running command output
-
----
-
-## iptables
-
-The `iptables` command is used to manage Linux firewall rules.
-
-### List Firewall Rules
-
-```bash
-sudo iptables -L
-```
-
-### List Rules With Numeric Output
-
-```bash
-sudo iptables -L -n -v
-```
-
-### Allow SSH Port 22
-
-```bash
-sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
-```
-
-### Allow HTTP Port 80
-
-```bash
-sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
-```
-
-### Allow HTTPS Port 443
-
-```bash
-sudo iptables -A INPUT -p tcp --dport 443 -j ACCEPT
-```
-
-### Block Port 8080
-
-```bash
-sudo iptables -A INPUT -p tcp --dport 8080 -j DROP
-```
-
-### DevOps Use
-
-`iptables` is used to allow or block server traffic using firewall rules.
-
-### Important Warning
-
-Be careful while using `iptables` on a remote server.
-
-Wrong firewall rules can block SSH access and disconnect you from the server.
-
-Before changing firewall rules on a remote server, make sure SSH is allowed:
-
-```bash
-sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
-```
+`whois` is useful for checking domain registration, ownership, expiry date, registrar, and name servers.
 
 ---
 
 # Old Commands and Modern Replacements
 
-| Old Command | Modern Command | Purpose |
+| Old Command | Modern Replacement | Purpose |
 |---|---|---|
 | `ifconfig` | `ip addr` | Check IP address and interfaces |
-| `route` | `ip route` | Check routing table |
-| `arp` | `ip neigh` | Check ARP/neighbour table |
 | `netstat` | `ss` | Check ports and sockets |
+| `route` | `ip route` | Check routing table |
+| `arp` | `ip neigh` | Check neighbour/ARP table |
 | `nslookup` | `dig` | DNS troubleshooting |
 | `telnet` | `nc` | Port testing |
 
@@ -1193,475 +547,115 @@ sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
 
 # Beginner DevOps Network Troubleshooting Flow
 
-When a network is not working, I can follow this order:
+When a network issue happens, I can follow this order:
 
-## Step 1: Check Server Name
+## Step 1: Check hostname
 
 ```bash
 hostname
 ```
 
-Purpose:
-
-```text
-Check which server I am working on.
-```
-
----
-
-## Step 2: Check IP Address
+## Step 2: Check IP address
 
 ```bash
 ip addr
 ```
 
-Purpose:
-
-```text
-Check whether the server has an IP address.
-```
-
----
-
-## Step 3: Check Route and Default Gateway
+## Step 3: Check route
 
 ```bash
 ip route
 ```
 
-Purpose:
-
-```text
-Check whether the server has a route to send traffic outside.
-```
-
----
-
-## Step 4: Check Internet by IP
+## Step 4: Check internet by IP
 
 ```bash
 ping -c 4 8.8.8.8
 ```
 
-Purpose:
-
-```text
-Check whether internet is working without DNS.
-```
-
----
-
-## Step 5: Check Internet by Domain
+## Step 5: Check internet by domain
 
 ```bash
 ping -c 4 google.com
 ```
 
-Purpose:
-
-```text
-Check whether internet and DNS are both working.
-```
-
----
-
-## Step 6: Check DNS Details
+## Step 6: Check DNS
 
 ```bash
+nslookup google.com
 dig google.com
 ```
 
-Purpose:
-
-```text
-Check DNS resolution details.
-```
-
----
-
-## Step 7: Check Listening Services
+## Step 7: Check listening ports
 
 ```bash
 ss -tulnp
 ```
 
-Purpose:
+## Step 8: Test website ports
+
+```bash
+telnet domain.com 80
+telnet domain.com 443
+```
+
+## Step 9: Check route path
+
+```bash
+traceroute domain.com
+tracepath domain.com
+```
+
+## Step 10: Check packet loss and latency
+
+```bash
+mtr domain.com
+```
+
+---
+
+# Practice Evidence
+
+I have added practical terminal screenshots for this phase inside:
 
 ```text
-Check which ports and services are running.
+practice-screenshots/
 ```
 
----
-
-## Step 8: Test Specific Port
-
-```bash
-nc -zv server.com 443
-```
-
-Purpose:
-
-```text
-Check whether a specific TCP port is open.
-```
-
----
-
-## Step 9: Check Network Path
-
-```bash
-traceroute google.com
-```
-
-Purpose:
-
-```text
-Check the route packets take to reach destination.
-```
-
----
-
-## Step 10: Check Packet Loss and Latency
-
-```bash
-mtr google.com
-```
-
-Purpose:
-
-```text
-Check network delay, packet loss, and unstable connections.
-```
-
----
-
-# Simple Memory Trick
-
-```text
-IP → Ping → DNS → Port → Path
-```
-
-| Step | Command Example | Question |
-|---|---|---|
-| IP | `ip addr` | Do I have an IP? |
-| Ping | `ping 8.8.8.8` | Can I reach the internet? |
-| DNS | `dig google.com` | Is DNS working? |
-| Port | `ss -tulnp` / `nc -zv` | Is the port open? |
-| Path | `traceroute` / `mtr` | Where is the network problem? |
-
----
-
-# Practice Tasks
-
-## Task 1: Check Basic Network Information
-
-```bash
-hostname
-ip addr
-ip route
-```
-
-## Task 2: Check Connectivity
-
-```bash
-ping -c 4 8.8.8.8
-ping -c 4 google.com
-```
-
-## Task 3: Check DNS
-
-```bash
-nslookup google.com
-dig google.com
-dig google.com +short
-```
-
-## Task 4: Check Ports and Services
-
-```bash
-ss -tuln
-sudo ss -tulnp
-netstat -tulnp
-```
-
-## Task 5: Test Port Connectivity
-
-```bash
-nc -zv google.com 443
-telnet google.com 80
-```
-
-## Task 6: Check Network Path
-
-```bash
-traceroute google.com
-tracepath google.com
-mtr google.com
-```
-
-## Task 7: Check Local Network
-
-```bash
-arp -a
-ip neigh
-ifplugstatus eth0
-```
-
-## Task 8: Scan Network
-
-```bash
-nmap localhost
-nmap -p 22,80,443 localhost
-```
-
-## Task 9: Download Files
-
-```bash
-wget https://example.com/file.zip
-curl -O https://example.com/file.zip
-```
-
-## Task 10: Monitor Live Output
-
-```bash
-watch date
-watch df -h
-watch free -m
-watch ss -tuln
-```
-
-## Task 11: Check Firewall Rules
-
-```bash
-sudo iptables -L
-sudo iptables -L -n -v
-```
-
----
-
-# Common Errors and Fixes
-
-## ifconfig, netstat, route, or arp command not found
-
-```bash
-sudo apt update
-sudo apt install net-tools
-```
-
-Modern alternatives:
-
-```bash
-ip addr
-ip route
-ip neigh
-ss -tulnp
-```
-
----
-
-## traceroute command not found
-
-```bash
-sudo apt update
-sudo apt install traceroute
-```
-
----
-
-## tracepath command not found
-
-```bash
-sudo apt update
-sudo apt install iputils-tracepath
-```
-
----
-
-## mtr command not found
-
-```bash
-sudo apt update
-sudo apt install mtr
-```
-
----
-
-## nslookup or dig command not found
-
-```bash
-sudo apt update
-sudo apt install dnsutils
-```
-
----
-
-## nc command not found
-
-```bash
-sudo apt update
-sudo apt install netcat-openbsd
-```
-
----
-
-## telnet command not found
-
-```bash
-sudo apt update
-sudo apt install telnet
-```
-
----
-
-## whois command not found
-
-```bash
-sudo apt update
-sudo apt install whois
-```
-
----
-
-## nmap command not found
-
-```bash
-sudo apt update
-sudo apt install nmap
-```
-
----
-
-## wget command not found
-
-```bash
-sudo apt update
-sudo apt install wget
-```
-
----
-
-## curl command not found
-
-```bash
-sudo apt update
-sudo apt install curl
-```
-
----
-
-## watch command not found
-
-```bash
-sudo apt update
-sudo apt install procps
-```
-
----
-
-## iptables command not found
-
-```bash
-sudo apt update
-sudo apt install iptables
-```
-
----
-
-## ifplugstatus command not found
-
-```bash
-sudo apt update
-sudo apt install ifplugd
-```
-
----
-
-## ping works with IP but not with domain
-
-If this works:
-
-```bash
-ping -c 4 8.8.8.8
-```
-
-but this fails:
-
-```bash
-ping -c 4 google.com
-```
-
-then DNS may not be working.
-
-Check DNS:
-
-```bash
-cat /etc/resolv.conf
-nslookup google.com
-dig google.com
-```
-
----
-
-## Permission denied while using iptables
-
-Use `sudo`:
-
-```bash
-sudo iptables -L
-```
-
----
-
-## nmap says host seems down
-
-Try:
-
-```bash
-nmap -Pn target-ip
-```
-
----
-
-## curl SSL certificate problem
-
-Install certificates:
-
-```bash
-sudo apt update
-sudo apt install ca-certificates
-sudo update-ca-certificates
-```
-
-Temporary testing only:
-
-```bash
-curl -k https://example.com
-```
-
-Avoid `-k` in production because it ignores SSL certificate verification.
-
----
-
-# Useful Package Installation Command
-
-Install common networking tools:
-
-```bash
-sudo apt update
-sudo apt install net-tools dnsutils traceroute mtr netcat-openbsd telnet whois nmap wget curl procps iptables ifplugd
-```
+These screenshots show my real command practice on an Ubuntu EC2 server.
+
+The practice includes:
+
+- `ping trainwithshubham.com`
+- installing `net-tools`
+- running `netstat`
+- checking interfaces with `ifconfig`
+- installing `inetutils-traceroute`
+- running `traceroute`
+- running `tracepath`
+- running `mtr`
+- using `nslookup`
+- testing ports with `telnet`
+- checking hostname and host file
+- using `hostname -I`
+- checking system details using `hostnamectl`
+- checking IP addresses using `ip addr`
+- checking sockets using `ss -tulnp`
+- checking DNS using `dig`
+- installing and using `whois`
 
 ---
 
 # Files in This Phase
 
-| File | Description |
+| File/Folder | Description |
 |---|---|
-| `README.md` | Complete detailed overview of Phase 4 |
-| `commands.md` | Command practice notes |
-| `errors-and-fixes.md` | Errors and fixes during practice |
-| `resources.md` | Useful resources and practice commands |
+| `README.md` | Complete Phase 4 overview and detailed practice notes |
+| `commands.md` | Commands practiced in this phase |
+| `errors-and-fixes.md` | Errors faced and fixes applied |
+| `resources.md` | Useful resources and practice references |
 | `handwritten-notes/` | My handwritten Day 4 notes |
+| `practice-screenshots/` | Terminal screenshots of hands-on practice |
 
 ---
 
@@ -1669,23 +663,21 @@ sudo apt install net-tools dnsutils traceroute mtr netcat-openbsd telnet whois n
 
 In this phase, I learned how to:
 
-- Check network connectivity using `ping`
-- Trace network paths using `traceroute`, `tracepath`, and `mtr`
-- Check IP addresses using `ip` and `ifconfig`
-- Check hostname using `hostname`
-- Check wireless interfaces using `iwconfig`
-- Check open ports using `ss` and `netstat`
-- Test port connectivity using `nc` and `telnet`
-- Troubleshoot DNS using `nslookup` and `dig`
-- Check local ARP table using `arp` and `ip neigh`
-- Check network cable status using `ifplugstatus`
-- Check domain registration using `whois`
-- Check routing table using `route` and `ip route`
-- Scan networks and ports using `nmap`
-- Download files using `wget`
-- Test APIs and HTTP requests using `curl`
-- Monitor commands live using `watch`
-- Manage firewall rules using `iptables`
+- Check connectivity using `ping`
+- Install missing networking tools
+- Use `netstat` after installing `net-tools`
+- Check interfaces using `ifconfig`
+- Use `traceroute` to view packet paths
+- Use `tracepath` to check route and MTU information
+- Use `mtr` for live packet loss and latency analysis
+- Use `nslookup` for DNS checking
+- Use `telnet` for port testing
+- Use `hostname` and `hostnamectl` for server identity
+- Use `ip addr` for modern IP checking
+- Use `ss` to check listening ports
+- Use `dig` for detailed DNS lookup
+- Use `whois` for domain information
+- Understand old networking commands and their modern replacements
 
 ---
 
