@@ -70,7 +70,7 @@ I am organizing the course content into phases based on what I cover and documen
 | Phase 2 | Linux Basic Commands, Advanced Commands, File Operations, Text Processing, SSH, and System Monitoring | [View Phase 2](./day-02-linux-file-operations) | Completed |
 | Phase 3 | Users, Groups, Permissions, Package Management, Compression, and File Transfer | [View Phase 3](./phase-03-linux-users-groups-permissions) | Completed |
 | Phase 4 | Linux Networking Commands for DevOps | [View Phase 4](./phase-04-linux-networking-commands) | Completed |
-| Phase 5 | Linux Volume Management and LVM | Coming Soon | Upcoming |
+| Phase 5 | Pro Linux Commands: `awk`, `grep`, `find`, `sed`, Linux Volume Management, and LVM | Coming Soon | Upcoming |
 
 ---
 
