@@ -48,10 +48,15 @@ A strong understanding of Linux helps in:
 - File transfer commands
 - Linux networking commands
 - Linux networking troubleshooting
+- DevOps-related Linux practice
+
+---
+
+## Upcoming Topics
+
 - Pro Linux commands: `awk`, `grep`, `find`, and `sed`
 - Linux volume management
 - LVM: Logical Volume Manager
-- DevOps-related Linux practice
 
 ---
 
