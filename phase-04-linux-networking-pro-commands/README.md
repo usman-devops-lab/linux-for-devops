@@ -1,93 +1,109 @@
-# Phase 4: Linux Networking Commands and Pro Linux Commands
+# Phase 4: Linux Networking Commands for DevOps
 
-This phase documents my learning of Linux networking commands and pro Linux commands used in DevOps.
+This phase documents my learning of important Linux networking commands used in DevOps, cloud, server management, troubleshooting, and system administration.
 
-In this phase, I practiced commands that are useful for checking network connectivity, troubleshooting DNS, downloading files, checking open ports, tracing network routes, scanning networks, monitoring command output, managing firewall rules, and processing text using powerful Linux tools.
+In this phase, I practiced commands that help check network connectivity, IP addresses, routing tables, DNS resolution, open ports, services, firewall rules, domain information, packet routes, and file downloads from the internet.
 
 ## Topics Covered
 
 - Linux networking basics
-- IP address and network interface checking
-- Routing table checking
-- Network connectivity testing
-- DNS lookup commands
-- curl and wget
-- Difference between curl and wget
-- ss and netstat
-- nmap scanning
-- traceroute
-- watch command
-- iptables firewall basics
-- grep command
-- awk command
-- find command
-- sed command
-- DevOps use cases of Linux networking commands
-
-## Why This Phase Is Important for DevOps
-
-Linux networking is very important for DevOps because most servers, cloud machines, containers, websites, and applications depend on networking.
-
-A DevOps engineer should know how to check IP addresses, routes, DNS, open ports, firewall rules, and server connectivity.
-
-Commands like `grep`, `awk`, `find`, and `sed` are also very important for log analysis, troubleshooting, automation, and shell scripting.
+- Connectivity checking commands
+- Network interface and IP address commands
+- Routing table commands
+- Port and service checking commands
+- DNS troubleshooting commands
+- Local network checking commands
+- Domain information commands
+- File download commands
+- Firewall rule commands
+- Network scanning commands
+- Live monitoring commands
+- curl vs wget difference
+- Beginner DevOps network troubleshooting flow
 
 ## Commands Practiced
 
-### Networking Commands
+### Connectivity Commands
+
+- `ping`
+- `traceroute`
+- `tracepath`
+- `mtr`
+
+### Network Interface and IP Commands
 
 - `ip`
 - `ifconfig`
-- `route`
-- `ping`
-- `traceroute`
-- `nslookup`
-- `dig`
-- `curl`
-- `wget`
+- `hostname`
+- `iwconfig`
+
+### Ports and Services Commands
+
 - `ss`
 - `netstat`
+- `nc`
+- `telnet`
+
+### DNS Troubleshooting Commands
+
+- `nslookup`
+- `dig`
+
+### Local Network Commands
+
+- `arp`
+- `ifplugstatus`
+
+### Domain Information Command
+
+- `whois`
+
+### Routing and Scanning Commands
+
+- `route`
 - `nmap`
+
+### File Download and HTTP Commands
+
+- `wget`
+- `curl`
+
+### Monitoring and Firewall Commands
+
 - `watch`
 - `iptables`
 
-### Pro Linux Commands
+## Why This Phase Is Important for DevOps
 
-- `grep`
-- `awk`
-- `find`
-- `sed`
+Networking is one of the most important parts of DevOps because servers, cloud instances, containers, applications, databases, CI/CD tools, and websites all communicate through networks.
 
-## Practical Use Cases
+A DevOps engineer should know how to:
 
-- Check server IP address
-- Check network interfaces
-- Check routing table
-- Test internet connectivity
-- Check DNS resolution
-- Download files from the internet
-- Test website response
-- Check open ports
-- Scan localhost or network
-- Trace packet route
-- Monitor commands live
+- Check whether a server is reachable
+- Check whether internet is working
+- Check whether DNS is resolving correctly
+- Check IP addresses and network interfaces
+- Check open ports and running services
+- Troubleshoot slow or unreachable websites
+- Check routing and gateway issues
+- Test TCP and UDP ports
+- Download files from URLs
 - Check firewall rules
-- Search text inside files
-- Search logs for errors
-- Extract columns from files
-- Find files by name, type, size, or time
-- Replace text inside files
+- Scan hosts and ports
+- Monitor command output live
 
-## Files in This Phase
+## Beginner DevOps Network Troubleshooting Flow
 
-| File | Description |
-|---|---|
-| `README.md` | Overview of Phase 4 |
-| `commands.md` | Important commands with examples |
-| `errors-and-fixes.md` | Common errors and fixes |
-| `resources.md` | Useful resources for learning |
-| `handwritten-notes/` | Handwritten notes and screenshots |
+When a network is not working, I can follow this order:
 
-## Status
-
-Completed
+```bash
+hostname
+ip addr
+ip route
+ping -c 4 8.8.8.8
+ping -c 4 google.com
+dig google.com
+ss -tulnp
+nc -zv server.com 443
+traceroute google.com
+mtr google.com
