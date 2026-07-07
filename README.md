@@ -107,7 +107,6 @@ linux-for-devops/
     ├── errors-and-fixes.md
     ├── resources.md
     ├── handwritten-notes/
-    └── practice-screenshots/
 ```
 
 ---
