@@ -6,8 +6,6 @@ In this phase, I focused on powerful Linux text processing commands such as `gre
 
 I also studied Linux volume management concepts, AWS EBS, physical volumes, volume groups, logical volumes, mounting volumes, and extending logical volumes using LVM.
 
----
-
 ## Learning Source
 
 This phase is based on:
@@ -15,8 +13,6 @@ This phase is based on:
 **Linux For DevOps In One Shot | Complete Beginners to Advanced Linux Hindi**
 
 I am learning Linux step by step and documenting important concepts, commands, notes, errors, fixes, handwritten notes, screenshots, and hands-on practice that are useful for DevOps, cloud infrastructure, automation, and server management.
-
----
 
 ## Phase 5 Focus
 
@@ -47,8 +43,6 @@ The focus of this phase is divided into two main parts:
 - Using LVM with EBS for dynamic storage management
 - Extending logical volumes
 
----
-
 ## Why This Phase Is Important for DevOps
 
 DevOps engineers work with logs, configuration files, deployment files, monitoring output, command output, and server storage.
@@ -72,8 +66,6 @@ A DevOps engineer should know how to:
 - Create physical volumes, volume groups, and logical volumes
 - Extend storage dynamically using LVM
 
----
-
 # Part 1: Pro Linux Commands
 
 ## Simple Memory Trick
@@ -83,8 +75,6 @@ grep = Search
 sed  = Edit
 awk  = Extract and process columns
 ```
-
----
 
 # grep
 
@@ -110,8 +100,6 @@ Meaning:
 Finds all lines containing the word error in application.log.
 ```
 
----
-
 ## Important grep Options
 
 | Option | Purpose | Example |
@@ -131,8 +119,6 @@ Finds all lines containing the word error in application.log.
 | `-F` | Searches fixed text instead of regex | `grep -F "192.168.1.10" access.log` |
 | `--color=auto` | Highlights matching text | `grep --color=auto "error" application.log` |
 
----
-
 ## grep Regular Expressions
 
 Regular expressions are patterns used for advanced searching.
@@ -148,8 +134,6 @@ Regular expressions are patterns used for advanced searching.
 | `[0-9]` | Matches digits from 0 to 9 | `grep "[0-9]" file.txt` |
 | `|` | Works as OR with `grep -E` | `grep -E "error|failed|warning" application.log` |
 
----
-
 ## Multiple Patterns with grep
 
 Using multiple `-e` options:
@@ -163,9 +147,6 @@ Using extended regular expression:
 ```bash
 grep -E "error|warning" application.log
 ```
-
----
-
 ## Searching Command Output with grep
 
 `grep` is frequently used with pipes.
@@ -200,8 +181,6 @@ Meaning:
 Searches running Docker containers for nginx.
 ```
 
----
-
 ## DevOps Uses of grep
 
 DevOps engineers use `grep` to:
@@ -214,8 +193,6 @@ DevOps engineers use `grep` to:
 - Find IP addresses and HTTP status codes
 - Locate environment variables
 - Check whether services are running
-
----
 
 # sed
 
@@ -238,8 +215,6 @@ By default, `sed`:
 3. Prints the result on the terminal
 4. Does not modify the original file unless `-i` is used
 
----
-
 ## Substitute Text
 
 ```bash
@@ -251,8 +226,6 @@ Meaning:
 ```text
 Replaces the first occurrence of old with new on each line.
 ```
-
----
 
 ## Substitute All Occurrences
 
@@ -268,8 +241,6 @@ Replaces every occurrence of old with new.
 
 The `g` means global replacement.
 
----
-
 ## Ignore Case
 
 ```bash
@@ -281,8 +252,6 @@ Meaning:
 ```text
 Replaces error, Error, or ERROR with issue.
 ```
-
----
 
 ## Modify the Original File
 
@@ -311,8 +280,6 @@ file.txt
 file.txt.bak
 ```
 
----
-
 ## Print Specific Lines
 
 Print only line 5:
@@ -326,8 +293,6 @@ Print lines 5 to 10:
 ```bash
 sed -n '5,10p' file.txt
 ```
-
----
 
 ## Delete Lines
 
@@ -355,8 +320,6 @@ Modify the file directly:
 sed -i '/debug/d' application.log
 ```
 
----
-
 ## Insert, Append, and Change Lines
 
 Insert text before line 3:
@@ -377,8 +340,6 @@ Change line 3 completely:
 sed '3c\This is the replacement line' file.txt
 ```
 
----
-
 ## Use Pattern as Address
 
 ```bash
@@ -392,8 +353,6 @@ Prints lines matching ERROR.
 ```
 
 Correct form with `-n` avoids duplicate output.
-
----
 
 ## Replace Text on Specific Lines
 
@@ -409,8 +368,6 @@ Replace from line 5 to line 10:
 sed '5,10s/old/new/g' file.txt
 ```
 
----
-
 ## Delete Blank Lines
 
 ```bash
@@ -423,23 +380,17 @@ Meaning:
 Removes empty lines.
 ```
 
----
-
 ## Remove Leading Spaces
 
 ```bash
 sed 's/^[[:space:]]*//' file.txt
 ```
 
----
-
 ## Remove Trailing Spaces
 
 ```bash
 sed 's/[[:space:]]*$//' file.txt
 ```
-
----
 
 ## Remove Comments
 
@@ -455,8 +406,6 @@ Remove comments and blank lines:
 sed '/^#/d; /^$/d' config.conf
 ```
 
----
-
 ## Use Another Delimiter
 
 Normally `/` separates the search and replacement strings:
@@ -471,15 +420,11 @@ For paths and URLs, another delimiter is easier:
 sed 's|/var/www/old|/var/www/new|g' file.txt
 ```
 
----
-
 ## Extended Regular Expressions
 
 ```bash
 sed -E 's/error|warning/issue/g' file.txt
 ```
-
----
 
 ## Capturing Groups
 
@@ -494,8 +439,6 @@ Notes:
 \2 = second captured group
 ```
 
----
-
 ## DevOps Uses of sed
 
 DevOps engineers use `sed` to:
@@ -508,8 +451,6 @@ DevOps engineers use `sed` to:
 - Update version numbers
 - Change URLs and paths
 - Edit configuration files automatically in shell scripts
-
----
 
 ## Important sed Safety Rule
 
@@ -526,8 +467,6 @@ sed -i.bak 's/old/new/g' config.conf
 ```
 
 This saves a backup.
-
----
 
 # awk
 
@@ -551,8 +490,6 @@ Another common form:
 command | awk '{ action }'
 ```
 
----
-
 ## How awk Reads Data
 
 `awk` divides every line into fields or columns.
@@ -574,15 +511,11 @@ $3 = third column
 $0 = complete line
 ```
 
----
-
 ## Print Complete Lines
 
 ```bash
 awk '{print $0}' employees.txt
 ```
-
----
 
 ## Print First Column
 
@@ -590,15 +523,11 @@ awk '{print $0}' employees.txt
 awk '{print $1}' employees.txt
 ```
 
----
-
 ## Print Multiple Columns
 
 ```bash
 awk '{print $1, $3}' employees.txt
 ```
-
----
 
 ## Important awk Built-in Variables
 
@@ -614,15 +543,11 @@ awk '{print $1, $3}' employees.txt
 | `OFS` | Output field separator |
 | `FILENAME` | Current filename |
 
----
-
 ## Print Line Number
 
 ```bash
 awk '{print NR, $0}' file.txt
 ```
-
----
 
 ## Print Number of Fields
 
@@ -630,23 +555,17 @@ awk '{print NR, $0}' file.txt
 awk '{print NF}' file.txt
 ```
 
----
-
 ## Print Last Column
 
 ```bash
 awk '{print $NF}' file.txt
 ```
 
----
-
 ## Print Second-Last Column
 
 ```bash
 awk '{print $(NF-1)}' file.txt
 ```
-
----
 
 ## Field Separators
 
@@ -669,8 +588,6 @@ Pipe-separated data:
 ```bash
 awk -F'|' '{print $1, $2}' file.txt
 ```
-
----
 
 ## Pattern Filtering with awk
 
@@ -716,8 +633,6 @@ OR condition:
 awk '$2 == "devops" || $2 == "admin" {print $1}' employees.txt
 ```
 
----
-
 ## BEGIN Block
 
 `BEGIN` runs before `awk` reads the file.
@@ -732,8 +647,6 @@ Commonly used to set separators:
 awk 'BEGIN {FS=":"} {print $1}' /etc/passwd
 ```
 
----
-
 ## END Block
 
 `END` runs after all lines have been processed.
@@ -741,8 +654,6 @@ awk 'BEGIN {FS=":"} {print $1}' /etc/passwd
 ```bash
 awk 'END {print "Total lines:", NR}' file.txt
 ```
-
----
 
 ## Calculations with awk
 
@@ -776,8 +687,6 @@ Find minimum value:
 awk 'NR == 1 || $3 < min {min = $3} END {print min}' employees.txt
 ```
 
----
-
 ## Formatting Output with printf
 
 ```bash
@@ -794,8 +703,6 @@ Common format symbols:
 | `\n` | New line |
 | `\t` | Tab |
 
----
-
 ## DevOps Uses of awk
 
 DevOps engineers use `awk` to:
@@ -810,8 +717,6 @@ DevOps engineers use `awk` to:
 - Generate monitoring reports
 - Find disk usage values
 - Process Docker and Kubernetes output
-
----
 
 # Combining grep, sed, and awk
 
@@ -829,8 +734,6 @@ Meaning:
 Finds error lines and extracts selected columns.
 ```
 
----
-
 ## grep with sed
 
 ```bash
@@ -843,8 +746,6 @@ Meaning:
 Finds error lines and changes the displayed word ERROR to ISSUE.
 ```
 
----
-
 ## sed with awk
 
 ```bash
@@ -856,8 +757,6 @@ Meaning:
 ```text
 Removes comment lines and prints the first column.
 ```
-
----
 
 ## All Three Together
 
@@ -873,8 +772,6 @@ sed replaces ERROR with CRITICAL.
 awk formats the final output.
 ```
 
----
-
 ## When to Use Which Command
 
 | Command | Use When | Simple Meaning |
@@ -882,8 +779,6 @@ awk formats the final output.
 | `grep` | You need to find lines containing a word or pattern | Find text |
 | `sed` | You need to replace, delete, or edit text | Change text |
 | `awk` | You need to work with columns or calculations | Extract, filter, and calculate |
-
----
 
 ## DevOps Example Areas
 
@@ -919,15 +814,11 @@ sed  = update versions and variables
 awk  = produce reports
 ```
 
----
-
 # Part 2: Linux Volume Management and LVM
 
 Linux volume management helps manage storage on Linux servers.
 
 In cloud environments like AWS, storage is commonly added using EBS volumes and attached to EC2 instances.
-
----
 
 ## Important Concepts
 
@@ -941,8 +832,6 @@ In cloud environments like AWS, storage is commonly added using EBS volumes and 
 | VG | Volume Group |
 | LV | Logical Volume |
 | LVM | Logical Volume Manager |
-
----
 
 ## Normal Disk vs LVM
 
@@ -966,8 +855,6 @@ Physical Volumes → Volume Group → Logical Volumes → Filesystem → Mount P
 
 This makes storage more flexible.
 
----
-
 ## Why LVM Is Useful
 
 LVM is useful because it allows dynamic storage management.
@@ -980,8 +867,6 @@ DevOps engineers can:
 - Manage storage more flexibly
 - Use AWS EBS volumes with Linux servers
 - Resize storage without redesigning the whole disk layout
-
----
 
 ## Useful LVM Commands
 
@@ -1012,8 +897,6 @@ Amazon Linux/RHEL/CentOS:
 sudo yum install lvm2
 ```
 
----
-
 ## Create Physical Volumes
 
 ```bash
@@ -1026,8 +909,6 @@ Check physical volumes:
 sudo pvs
 sudo pvdisplay
 ```
-
----
 
 ## Create Volume Group
 
@@ -1042,8 +923,6 @@ sudo vgs
 sudo vgdisplay
 ```
 
----
-
 ## Create Logical Volume
 
 ```bash
@@ -1057,23 +936,17 @@ sudo lvs
 sudo lvdisplay
 ```
 
----
-
 ## Create Mount Directory
 
 ```bash
 sudo mkdir -p /mnt/tws-lv-mount
 ```
 
----
-
 ## Create Filesystem
 
 ```bash
 sudo mkfs.ext4 /dev/tws-vg/tws-lv
 ```
-
----
 
 ## Mount Logical Volume
 
@@ -1088,15 +961,11 @@ lsblk
 df -h
 ```
 
----
-
 ## Unmount Logical Volume
 
 ```bash
 sudo umount /mnt/tws-lv-mount
 ```
-
----
 
 ## Extend Logical Volume
 
@@ -1116,8 +985,6 @@ Verify:
 df -h
 ```
 
----
-
 ## Important Storage Safety Notes
 
 - Always check disk names using `lsblk`
@@ -1127,8 +994,6 @@ df -h
 - Be careful when working on production servers
 - Take backup before storage changes
 - Confirm the correct AWS EBS volume before formatting or mounting
-
----
 
 # Important Notes for DevOps Engineers
 
@@ -1143,8 +1008,6 @@ df -h
 - Always verify disk names before formatting or mounting storage
 - Use LVM carefully because storage mistakes can cause data loss
 
----
-
 # Files in This Phase
 
 | File/Folder | Description |
@@ -1155,8 +1018,6 @@ df -h
 | `resources.md` | Useful resources and practice references |
 | `handwritten-notes/` | My handwritten Phase 5 notes |
 | `practice-screenshots/` | Terminal screenshots of hands-on practice |
-
----
 
 # What I Learned
 
@@ -1179,8 +1040,6 @@ In this phase, I learned how to:
 - Mount logical volumes
 - Extend logical volumes using LVM
 - Follow safety rules before editing files or changing storage
-
----
 
 # Status
 
