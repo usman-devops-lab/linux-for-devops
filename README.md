@@ -8,8 +8,6 @@ The learning is based on the course:
 
 **Linux For DevOps In One Shot | Complete Beginners to Advanced Linux (Hindi)**
 
----
-
 ## Why Linux for DevOps?
 
 Linux is one of the core foundations of DevOps because most servers, cloud instances, containers, CI/CD tools, and automation workflows run on Linux-based systems.
@@ -24,9 +22,8 @@ A strong understanding of Linux helps in:
 - Networking
 - Package management
 - User and permission management
+- Storage and volume management
 - DevOps tool usage
-
----
 
 ## Topics Covered
 
@@ -48,17 +45,14 @@ A strong understanding of Linux helps in:
 - File transfer commands
 - Linux networking commands
 - Linux networking troubleshooting
-- DevOps-related Linux practice
-
----
-
-## Upcoming Topics
-
-- Pro Linux commands: `awk`, `grep`, `find`, and `sed`
+- Pro Linux commands: `grep`, `sed`, and `awk`
+- Log filtering and text processing
 - Linux volume management
+- AWS EBS volume management
 - LVM: Logical Volume Manager
-
----
+- Physical volumes, volume groups, and logical volumes
+- Mounting and extending Linux volumes
+- DevOps-related Linux practice
 
 ## Learning Progress
 
@@ -70,9 +64,7 @@ I am organizing the course content into phases based on what I cover and documen
 | Phase 2 | Linux Basic Commands, Advanced Commands, File Operations, Text Processing, SSH, and System Monitoring | [View Phase 2](./day-02-linux-file-operations) | Completed |
 | Phase 3 | Users, Groups, Permissions, Package Management, Compression, and File Transfer | [View Phase 3](./phase-03-linux-users-groups-permissions) | Completed |
 | Phase 4 | Linux Networking Commands for DevOps | [View Phase 4](./phase-04-linux-networking-commands) | Completed |
-| Phase 5 | Pro Linux Commands: `awk`, `grep`, `find`, `sed`, Linux Volume Management, and LVM | Coming Soon | Upcoming |
-
----
+| Phase 5 | Pro Linux Commands and Linux Volume Management with LVM | [View Phase 5](./phase-05-pro-linux-commands-and-lvm) | Completed |
 
 ## Repository Structure
 
@@ -101,15 +93,22 @@ linux-for-devops/
 │   ├── resources.md
 │   └── handwritten-notes/
 │
-└── phase-04-linux-networking-commands/
+├── phase-04-linux-networking-commands/
+│   ├── README.md
+│   ├── commands.md
+│   ├── errors-and-fixes.md
+│   ├── resources.md
+│   ├── handwritten-notes/
+│   └── practice-screenshots/
+│
+└── phase-05-pro-linux-commands-and-lvm/
     ├── README.md
     ├── commands.md
     ├── errors-and-fixes.md
     ├── resources.md
     ├── handwritten-notes/
+    └── practice-screenshots/
 ```
-
----
 
 ## What I Am Practicing
 
@@ -119,14 +118,15 @@ linux-for-devops/
 - Documenting learning in public
 - Building a DevOps-focused GitHub portfolio
 - Connecting Linux concepts with real DevOps use cases
-
----
+- Practicing real server troubleshooting
+- Working with logs, files, networking, and storage
+- Understanding Linux storage and LVM concepts
 
 ## Goal
 
 My goal is to build strong Linux fundamentals for DevOps and document everything in a clean, practical, and professional way.
 
----
+This repository reflects my step-by-step progress in Linux, from basic commands to real DevOps-related Linux administration, networking, troubleshooting, text processing, and storage management.
 
 ## Connect with Me
 
