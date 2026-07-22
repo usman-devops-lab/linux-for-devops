@@ -98,16 +98,14 @@ linux-for-devops/
 │   ├── commands.md
 │   ├── errors-and-fixes.md
 │   ├── resources.md
-│   ├── handwritten-notes/
-│   └── practice-screenshots/
+│   └── handwritten-notes/
 │
 └── phase-05-pro-linux-commands-and-lvm/
     ├── README.md
     ├── commands.md
     ├── errors-and-fixes.md
     ├── resources.md
-    ├── handwritten-notes/
-    └── practice-screenshots/
+    └── handwritten-notes/
 ```
 
 ## What I Am Practicing
